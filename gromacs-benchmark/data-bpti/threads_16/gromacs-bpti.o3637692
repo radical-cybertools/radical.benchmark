@@ -1,0 +1,149 @@
+                   :-) GROMACS - gmx grompp, VERSION 5.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, VERSION 5.1
+Executable:   /sw/xk6/gromacs/5.1.0/sles11.3_gnu4.9.0/bin/gmx_mpi
+Data prefix:  /sw/xk6/gromacs/5.1.0/sles11.3_gnu4.9.0
+Command line:
+  gmx_mpi grompp -f run3.mdp -c bpti.gro -p topol.top -o md.tpr
+
+
+NOTE 1 [file run3.mdp]:
+  With Verlet lists the optimal nstlist is >= 10, with GPUs >= 20. Note
+  that with the Verlet scheme, nstlist has no effect on the accuracy of
+  your simulation.
+
+Setting the LD random seed to 763734925
+Generated 2211 of the 2211 non-bonded parameter combinations
+Generating 1-4 interactions: fudge = 0.5
+Generated 2211 of the 2211 1-4 parameter combinations
+Excluding 3 bonded neighbours molecule type 'BPTI'
+turning all bonds into constraints...
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 1 bonded neighbours molecule type 'CL'
+turning all bonds into constraints...
+turning all bonds into constraints...
+Removing all charge groups because cutoff-scheme=Verlet
+Analysing residue names:
+There are:    58    Protein residues
+There are:  6541      Water residues
+There are:     6        Ion residues
+Analysing Protein...
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+Number of degrees of freedom in T-Coupling group Protein is 1769.87
+Number of degrees of freedom in T-Coupling group SOL is 39243.13
+Number of degrees of freedom in T-Coupling group CL is 18.00
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 52x52x52, spacing 0.114 0.114 0.114
+Estimate for the relative computational load of the PME mesh part: 0.19
+
+There was 1 note
+This run will generate roughly 17 Mb of data
+
+gcq#406: "Either you will be dashed to atoms on crag points, or lifted up and borne by some master-wave into a calmer current" (Charlotte Bronte)
+
+Application 15932637 resources: utime ~1s, stime ~0s, Rss ~12124, inblocks ~32773, outblocks ~62367
+                    :-) GROMACS - gmx mdrun, VERSION 5.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, VERSION 5.1
+Executable:   /sw/xk6/gromacs/5.1.0/sles11.3_gnu4.9.0/bin/gmx_mpi
+Data prefix:  /sw/xk6/gromacs/5.1.0/sles11.3_gnu4.9.0
+Command line:
+  gmx_mpi mdrun -deffnm md -ntomp 4 -pin on -pinoffset 0
+
+
+Number of logical cores detected (16) does not match the number reported by OpenMP (1).
+Consider setting the launch configuration manually!
+
+Running on 1 node with total 16 cores, 16 logical cores (GPU detection deactivated)
+Hardware detected on host nid03795 (the node of MPI rank 0):
+  CPU info:
+    Vendor: AuthenticAMD
+    Brand:  AMD Opteron(TM) Processor 6274                 
+    SIMD instructions most likely to fit this hardware: AVX_128_FMA
+    SIMD instructions selected at GROMACS compile time: AVX_128_FMA
+
+
+The current CPU can measure timings more accurately than the code in
+gmx_mpi was configured to use. This might affect your simulation
+speed as accurate timings are needed for load-balancing.
+Please consider rebuilding gmx_mpi with the GMX_USE_RDTSCP=ON CMake option.
+
+Reading file md.tpr, VERSION 5.1 (single precision)
+Using 4 MPI processes
+Using 4 OpenMP threads per MPI process
+
+
+Overriding thread affinity set outside gmx_mpi
+
+starting mdrun 'BPTI in water'
+8000 steps,     16.0 ps.
+
+NOTE: Turning on dynamic load balancing
+
+
+Writing final coordinates.
+
+ Average load imbalance: 0.6 %
+ Part of the total run time spent waiting due to load imbalance: 0.2 %
+ Steps where the load balancing was limited by -rdd, -rcon and/or -dds: X 0 %
+
+
+NOTE: 12 % of the run time was spent in domain decomposition,
+      37 % of the run time was spent in pair search,
+      you might want to increase nstlist (this has no effect on accuracy)
+
+
+               Core t (s)   Wall t (s)        (%)
+       Time:     1642.452      111.150     1477.7
+                 (ns/day)    (hour/ns)
+Performance:       12.439        1.929
+
+gcq#94: "Proceed, With Fingers Crossed" (TeX)
+
+Application 15932638 resources: utime ~1470s, stime ~31s, Rss ~26600, inblocks ~44355, outblocks ~88011

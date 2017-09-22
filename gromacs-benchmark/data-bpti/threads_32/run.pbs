@@ -1,0 +1,21 @@
+#!/bin/bash
+#    Begin PBS directives
+#PBS -A BIP149
+#PBS -N gromacs-bpti
+#PBS -j oe
+#PBS -l walltime=0:15:00,nodes=2
+#    End PBS directives and begin shell commands
+
+module load gromacs/5.1.0
+export GMX_DISABLE_GPU_DETECTION=True
+
+cd /lustre/atlas/scratch/vivekb/bip149/data-bpti/threads_32
+
+aprun -n 1 gmx_mpi grompp -f run3.mdp -c bpti.gro -p topol.top -o md.tpr &
+
+wait
+
+aprun -n 8 -N 4 gmx_mpi mdrun -deffnm md -ntomp 4 -pin on -pinoffset 0 &
+
+wait
+

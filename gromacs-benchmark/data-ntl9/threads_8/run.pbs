@@ -3,18 +3,19 @@
 #PBS -A BIP149
 #PBS -N gromacs-ntl9
 #PBS -j oe
-#PBS -l walltime=0:15:00,nodes=1
+#PBS -l walltime=0:30:00,nodes=1
 #    End PBS directives and begin shell commands
 
-module swap PrgEnv-pgi PrgEnv-gnu
-module load fftw boost
-export LD_LIBRARY_PATH="/ccs/proj/bip149/gromacs-nonmpi/lib64:$LD_LIBRARY_PATH:$CRAY_LD_LIBRARY_PATH"
+module load gromacs/5.1.0
+export GMX_DISABLE_GPU_DETECTION=True
 
 cd /lustre/atlas/scratch/vivekb/bip149/data-ntl9/threads_8
 
-aprun /ccs/proj/bip149/gromacs-nonmpi/bin/gmx grompp -n index.ndx -f grompp.mdp -c input.gro -maxwarn 1 
+aprun -n 1 gmx_mpi grompp -n index.ndx -f grompp.mdp -c input.gro -maxwarn 1 &
 
-aprun -n 1 -N 1 /ccs/proj/bip149/gromacs-nonmpi/bin/gmx mdrun -nt 8 -pin on -pinoffset 0 &
+wait
+
+aprun -n 2 -N 2 gmx_mpi mdrun -ntomp 4 -pin on -pinoffset 0 &
 
 wait
 
