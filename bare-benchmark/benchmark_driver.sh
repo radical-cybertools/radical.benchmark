@@ -51,6 +51,10 @@ main(){
 
     while read -r ID RUN_NUM TASK_NUM TASK_SIZE GEN_NUM PILOT_NUM PILOT_SIZE TTC WALLTIME
     do
+        if test "$ID" == '#'
+        then
+            continue
+        fi
         benchmark_run "$ID" "$PILOT_SIZE" "$TASK_NUM" "$TASK_SIZE" "$WORKLOAD"
     done < "$TABLE"
 }
