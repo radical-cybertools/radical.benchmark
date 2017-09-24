@@ -8,6 +8,7 @@
 # module load python_virtualenv
 
 export OMPI=/home/merzky/radical/ompi/installed/2017_09_18_539f71d
+export OMPI=/lustre/atlas2/csc230/world-shared/openmpi/installed/2017_05_04_539f71d
 export PATH=$OMPI/bin/:$PATH
 export LD_LIBRARY_PATH=$OMPI/lib/:$LD_LIBRARY_PATH
 export PKG_CONFIG_PATH=$OMPI/share/pkgconfig/:$PKG_CONFIG_PATH
@@ -47,7 +48,7 @@ main(){
 
     TABLE="$1"
     workload="$PWD/09_mpi_units.sh"
-    workload="/bin/true"
+  # workload="/bin/true"
 
     while read -r ID RUN_NUM TASK_NUM TASK_SIZE GEN_NUM PILOT_NUM PILOT_SIZE TTC WALLTIME
     do
