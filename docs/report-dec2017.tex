@@ -32,25 +32,25 @@
 
 \begin{figure}
   \centering
-  \includegraphics[width=\columnwidth]{figures/paper_titan_rp_weak_scaling.pdf}
-  \caption{\textbf{Weak scaling:} For the given workload, RADICAL-Pilot weak
-	scales linearly between 64 and 1024 nodes. It scales sublinearly between
-	1024 and 8192 nodes. Runs with 16384 nodes fail due to bugs in the
-	current implementation of OpenMPI. }\label{fig:ws-ttc}
+  \includegraphics[width=\columnwidth]{figures/screen_titan_rp_synapse_weak_scaling.png}
+  \caption{\textbf{Weak scaling:} For the given workload, RADICAL-Pilot
+	weak scales linearly between 64 and 1024 nodes; sublinearly between 1024
+	and 8192 nodes. Runs with 16384 nodes fail for bugs in the current
+	implementation of OpenMPI. }\label{fig:ws-ttc}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=\columnwidth]{figures/paper_titan_rp_synapse_strong_scaling.pdf}
+  \includegraphics[width=\columnwidth]{figures/screen_titan_rp_synapse_strong_scaling.png}
   \caption{\textbf{Strong scaling:} For the given workload with 16384 tasks,
-	RADICAL-Pilot strong scales between 1024 and 4096 nodes. Runs with
-	between 8192 and 16384 nodes fail due to bugs in the current
-	implementation of OpenMPI.}\label{fig:ss-ttc}
+	RADICAL-Pilot strong scales linearly between 1024 and 4096 nodes. Runs
+	with more than 8192 fail for bugs in the current implementation of
+	OpenMPI.}\label{fig:ss-ttc}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{figures/paper_titan_rp_synapse_weak_scaling_concurrency_horizontal.pdf}
+  \includegraphics[width=\textwidth]{figures/screen_titan_rp_synapse_weak_scaling_concurrency_horizontal.png}
   \caption{\textbf{Concurrency of weak scaling:} Sublinear weak scaling
   performance depends from a decreased concurrency of the workload execution.
   RADICAL-Pilot is not able to use all the available cores, resulting in
@@ -59,7 +59,7 @@
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{figures/paper_titan_rp_synapse_weak_scaling_events_timeline_horizontal.pdf}
+  \includegraphics[width=\textwidth]{figures/screen_titan_rp_synapse_weak_scaling_events_timeline_horizontal.png}
   \caption{\textbf{Relevant events of weak scaling profiling:} Sublinear weak
 	scaling depends on the current implementation of the Scheduler component
 	and, to a lesser measure, of the Executor components of RADICAL-Pilot.
@@ -69,7 +69,7 @@
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{figures/paper_titan_rp_synapse_strong_scaling_events_timeline_horizontal.pdf}
+  \includegraphics[width=\textwidth]{figures/screen_titan_rp_synapse_strong_scaling_events_timeline_horizontal.png}
   \caption{\textbf{Relevant events of strong scaling profiling:}
   RADICAL-Pilot sequentially executes sets of units. The performance of the
   execution of each set slightly decreases with the increasing of the number
@@ -79,7 +79,7 @@
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{figures/paper_titan_rp_synapse_strong_scaling_events_timeline_1stgen_horizontal.pdf}
+  \includegraphics[width=\textwidth]{figures/screen_titan_rp_synapse_strong_scaling_events_timeline_1stgen_horizontal.png}
   \caption{\textbf{Performance of the Scheduler component in strong scaling:}
 	The performance of the Scheduler component depends on the size of the
 	pilot, i.e., on the number of compute nodes/cores used to schedule the
